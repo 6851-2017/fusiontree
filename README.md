@@ -242,33 +242,31 @@ using it is fairly simple and relies only on its four
 public methods. In our repository, the file 
 [example.cpp](example.cpp) can be found and contains a
 brief example of how to construct and query a 
-```fusiontree```.
+```fusiontree```. Its main function can be seen below:
 
 ```C++
-#include <iostream>
-#include "big_int.hpp"
-#include "fusiontree.hpp"
-
 int main() {
-vector<big_int> small_squares;
-for (int i = 1; i <= 5; i++) {
-small_squares.push_back(i * i);
-}
+  vector<big_int> small_squares;
+  for (int i = 1; i <= 5; i++) {
+    small_squares.push_back(i * i);
+  }
 
-environment *env = new environment;
-fusiontree my_fusiontree(small_squares, env);
+  environment *env = new environment;
+  fusiontree my_fusiontree(small_squares, env);
 
-int idx1 = my_fusiontree.find_predecessor(3);
-int idx2 = my_fusiontree.find_predecessor(9);
-int idx3 = my_fusiontree.find_predecessor(0);
+  int idx1 = my_fusiontree.find_predecessor(3);
+  int idx2 = my_fusiontree.find_predecessor(9);
+  int idx3 = my_fusiontree.find_predecessor(0);
 
-cout << "Fusion Tree size:" << endl;
-cout << my_fusiontree.size() << endl;
-cout << "Queried positions:" << endl;
-cout << idx1 << " " << idx2 << " " << idx3 << endl;
-cout << "Queried elements:" << endl;
-cout << (int)my_fusiontree.pos(idx1) << " "
-<< (int)my_fusiontree.pos(idx2) << endl;
+  cout << "Fusion Tree size:" << endl;
+  cout << my_fusiontree.size() << endl;
+  
+  cout << "Queried positions:" << endl;
+  cout << idx1 << " " << idx2 << " " << idx3 << endl;
+  
+  cout << "Queried elements:" << endl;
+  cout << (int)my_fusiontree.pos(idx1) << " "
+       << (int)my_fusiontree.pos(idx2) << endl;
 }
 ```
 
@@ -350,14 +348,14 @@ valid positions 0, and 2, which are 1 and 9.
 
 ```C++
 cout << "Queried elements:" << endl;
-cout << (int)my_fusiontree.pos(idx1) << " " << (int)my_fusiontree.pos(idx2) 
-     << endl;
+cout << (int)my_fusiontree.pos(idx1) << " "
+     << (int)my_fusiontree.pos(idx2) << endl;
 ```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+Pull requests are welcome. For major changes, please 
+open an issue first to discuss what you would like to 
+change.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
