@@ -28,8 +28,6 @@ class big_int {
 
   big_int(const std::bitset<WSIZE> &b);
 
-  int to_int() const;
-
   big_int operator~() const;
 
   big_int operator-() const;

@@ -15,12 +15,17 @@ int main() {
   environment *env = new environment;
   fusiontree my_fusiontree(small_squares, env);
 
-  int i1 = my_fusiontree.find_predecessor(3);
-  int i2 = my_fusiontree.find_predecessor(9);
-  int i3 = my_fusiontree.find_predecessor(0);
+  int idx1 = my_fusiontree.find_predecessor(3);
+  int idx2 = my_fusiontree.find_predecessor(9);
+  int idx3 = my_fusiontree.find_predecessor(0);
 
-  cout << "Fusion Tree example:" << endl;
-  cout << i1 << " " << i2 << " " << i3 << endl;
-  cout << my_fusiontree.pos(i1).to_int() << " "
-       << my_fusiontree.pos(i2).to_int() << endl;
+  cout << "Fusion Tree size:" << endl;
+  cout << my_fusiontree.size() << endl;
+
+  cout << "Queried positions:" << endl;
+  cout << idx1 << " " << idx2 << " " << idx3 << endl;
+
+  cout << "Queried elements:" << endl;
+  cout << (int)my_fusiontree.pos(idx1) << " " << (int)my_fusiontree.pos(idx2)
+       << endl;
 }

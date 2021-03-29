@@ -18,11 +18,6 @@ big_int::big_int(int x) { bs = x; }
 
 big_int::big_int(const bitset<WSIZE> &b) { bs = b; }
 
-int big_int::to_int() const {
-  int x = bs.to_ulong();
-  return x;
-}
-
 big_int big_int::operator~() const { return big_int(~bs); }
 
 big_int big_int::operator-() const { return ((~(*this)) + big_int(1)); }

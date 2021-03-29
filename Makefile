@@ -16,7 +16,7 @@ HEADERS = $(wildcard *.hpp)
 SOURCES = $(wildcard *.cpp)
 
 OBJECTS = $(SOURCES:.cpp=.o)
-PROGRAM = main
+PROGRAM = main.exe
 
 COMP = clang++
 COMPFLAGS = -Wall -g -mavx2 -pg
