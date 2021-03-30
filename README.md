@@ -195,7 +195,7 @@ and have a ```main``` function, as shown below:
 #include "fusiontree.hpp"
 
 int main() {
-// your code here...
+  // your code here...
 }
 ```
 
