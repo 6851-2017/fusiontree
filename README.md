@@ -43,7 +43,7 @@ Returns an ```int``` with the value of the
 an ```int```.
 
 All the following operators must perform the same 
-operation they do in a standard C++ \texttt{int}, 
+operation they do in a standard C++ ```int```, 
 which can be found on https://www.cplusplus.com/doc/tutorial/operators/.
 
 ```C++
