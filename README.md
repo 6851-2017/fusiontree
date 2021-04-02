@@ -14,6 +14,15 @@ environment and a fusion tree and explain explain the
 public methods available in our fusion tree, as well 
 as show a code example.
 
+Besides this file, there is also a complete report in this
+repository, [report.pdf](report.pdf), with not only this 
+documentation, but also a brief review of fusion trees 
+and more detailed explanation of the implementation of
+the methods here presented and design choices. The source
+code in [fusiintree.hpp](fusiontree.hpp) and 
+[fusiontree.cpp](fusiontree.cpp) is also extensively 
+commented.
+
 ## Big Integer
 
 This subsection provides documentation to the 

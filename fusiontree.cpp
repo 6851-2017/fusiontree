@@ -135,19 +135,19 @@ const int environment::fast_most_significant_bit(big_int const &x) const {
   big_int x_clusters_first_bits = x & clusters_first_bits;
 
   // use XOR between x and the last result to make the first bit of each cluster
-  // unsignificant, i.e., consider only the rest of the cluster
+  // insignificant, i.e., consider only the rest of the cluster
   big_int x_remain = x ^ x_clusters_first_bits;
 
-  // subtratct the remains of the clusters from clusters_first_bits and only the
-  // clusters with significant bits in their remais will have a zero as their
+  // subtract the remains of the clusters from clusters_first_bits and only the
+  // clusters with significant bits in their remains will have a zero as their
   // first bit
   x_remain = clusters_first_bits - x_remain;
 
   // extract only those first bits
   x_remain = x_remain & clusters_first_bits;
 
-  // and use an XOR with cluster_first_bits to reverse the value of the first
-  // bits now the first bit is 1 if there is any significant bit in the rest of
+  // and use an XOR with cluster_first_bits to swap the value of the first
+  // bits. Now the first bit is 1 if there is any significant bit in the rest of
   // the cluster
   x_remain = x_remain ^ clusters_first_bits;
 
@@ -156,7 +156,7 @@ const int environment::fast_most_significant_bit(big_int const &x) const {
   // there is any significant bit in that cluster
   big_int x_significant_clusters = x_remain | x_clusters_first_bits;
 
-  // THen we have to sketch x_significant_clusters
+  // Then we have to sketch x_significant_clusters
   // We are using m_i = element_size - (sqrt_element_size - 1) - i *
   // sqrt_element_size + i. Note that, since b_i = sqrt_element_size - 1 + i *
   // sqrt_element_size, we have that m_i + b_i = element_size+1, so if we shift
@@ -166,7 +166,7 @@ const int environment::fast_most_significant_bit(big_int const &x) const {
       ((x_significant_clusters * perfect_sketch_m) >> element_size) &
       (~shift_neg_0[sqrt_element_size]);
 
-  // to find theindex of the most significant cluster, i.e., the first cluster
+  // to find the index of the most significant cluster, i.e., the first cluster
   // with significant bits, we only have to find the most_significant_bit of
   // x_significant_clusters. Since we only have sqrt_element_size bits, we can
   // use the function cluster_most_significant_bit to do it
@@ -335,7 +335,7 @@ void fusiontree::find_m() {
 
     // then, we have to set sketch_mask, which is a bitmask that allows us to
     // extract the important bits of x after we multiply x*m. It is easy to see
-    // that each bit b_i will be gound in position b_i+m_i, thus we only have to
+    // that each bit b_i will be found in position b_i+m_i, thus we only have to
     // set a bit mask with those bits
     sketch_mask =
         sketch_mask | (my_env->shift_1[important_bits[i] + m_indices[i]]);
@@ -365,8 +365,8 @@ void fusiontree::set_parallel_comparison() {
   }
 
   // set bitmask repeat_int, which is a repetition of 000...01, to make a
-  // sequnce if bits repeat itself multiple times, leaving one bit interposed
-  // between two repetitions
+  // sequence if bits repeat itself multiple times, leaving one bit interposed
+  // between two repetitionse
   for (int i = 0; i < my_env->capacity; i++) {
     // just add 1 in the end of each interval of 000...01
     repeat_int =
@@ -401,10 +401,8 @@ const big_int fusiontree::approximate_sketch(const big_int &x) const {
   // extract the important bits of the number, multiply them by m and shift to
   // the right b_i+m_i positions so that the last significant bit go to position
   // 0
-  big_int ret = ((((x & mask_important_bits) * m) & sketch_mask) >>
-                 (important_bits[0] + m_indices[0]));
-  // then return the result of these operations
-  return ret;
+  return ((((x & mask_important_bits) * m) & sketch_mask) >>
+          (important_bits[0] + m_indices[0]));
 }
 
 // returns an integer with capacity repetitions of the sketch of x, separated by
@@ -413,9 +411,7 @@ const big_int fusiontree::approximate_sketch(const big_int &x) const {
 const big_int fusiontree::multiple_sketches(const big_int &x) const {
   // calculate the approximate sketch of x and multiply by the variable
   // repeat_int
-  big_int ret = approximate_sketch(x) * repeat_int;
-  // then return the result of these operations
-  return ret;
+  return approximate_sketch(x) * repeat_int;
 }
 
 // returns the index of the biggest y in the tree such that
@@ -517,7 +513,7 @@ const int fusiontree::find_predecessor(const big_int &x) const {
   // if both lca1 and lc2 are tagged, pick the highest lca
   if (lca1 != -2 and lca2 != -2) lca = min(lca1, lca2);
 
-  int answer = 0;
+  int answer;
   big_int e;
 
   // if the bit that first differentiates x is 1, then x lies in the right
