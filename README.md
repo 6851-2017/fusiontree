@@ -12,14 +12,17 @@ class, in case the reader wants to use another or
 implement her own. Then we will how to declare an 
 environment and a fusion tree and explain explain the 
 public methods available in our fusion tree, as well 
-as show a code example.
+as show a code example. A video demo that explains 
+this documentation and shows how to use this code
+can be found on [YouTube](https://youtu.be/pnl-vN4RLrM).
 
-Besides this file, there is also a complete report in this
-repository, [report.pdf](report.pdf), with not only this 
+Besides this file and the demo, there is also a 
+complete report in this repository, 
+[report.pdf](report.pdf), with not only this 
 documentation, but also a brief review of fusion trees 
 and more detailed explanation of the implementation of
 the methods here presented and design choices. The source
-code in [fusiintree.hpp](fusiontree.hpp) and 
+code in [fusiontree.hpp](fusiontree.hpp) and 
 [fusiontree.cpp](fusiontree.cpp) is also extensively 
 commented.
 
@@ -101,7 +104,7 @@ constructor, which can be seen below:
 environment(int word_size_ = 4000, int element_size_ = 3136, int capacity_ = 5);
 ```
 * ```wordsize_```: The maximum size (in bits) of the 
-```big\_int``` class, which should be the word size 
+```big_int``` class, which should be the word size 
 assumed for the computer. Must be greater or equal to
 ```(capacity_)^5+(capacity_^4```, so that the process 
 of finding the *em mask m* can be done without 
@@ -114,7 +117,7 @@ extrapolating the number of bits in a word.
   Must also be greater or equal to 
   ```(capacity_)^5```, which allows that the 
   *approximately sketched* version of all the elements
-  stored in the tree fit in a single ```big\_int```.
+  stored in the tree fit in a single ```big_int```.
 
 * ```capacity_```: The maximum number of elements that
   can be stored in a fusion tree. Thus, it is also the
